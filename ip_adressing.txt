@@ -1,4 +1,4 @@
-IP Addressing
+IP Addressing (more editing)
 ----------------
 IP             Class  SubnetMask         CIDR Range
 192.68.25.0    C      255.255.255.0      192.68.25.0/24
