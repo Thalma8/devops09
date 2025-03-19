@@ -1,0 +1,78 @@
+Subnetting 
+-------------
+Create four subnets from the following IP 198.67.23.0
+
+No of subnets = 2^n
+
+Steps taken when subnetting
+---------------------------
+Step 1: Break down the IP to understand it:
+	Class   SubnetMask      CIDRRange
+	  C     255.255.255.0   198.67.23.0/24
+
+Step2: Convert the IP from decimal to binary
+	198.67.23.0 TO BINARY => 11000110.01000011.00010111.00000000
+ 
+	                                                                              
+	128   64  32  16  8  4  2  1 = 128 + 64 +32+16+8+4+2+1= 255
+
+	Subnet 255.255.255.0 to binary: 11111111.11111111.11111111.00000000
+Step3: Calculate the number of host bits that be given to the network portion
+	as required by the subnets
+
+	No of subnets = 2^n
+		4 = 2 ^n => number of host bits(n) = 2
+	128   64  32  16  8  4  2  1
+	
+	11000110.01000011.00010111.11000000
+	New CIDR Range for IP = 198.67.23.0/26
+	New Subnet mask in binary = 11111111.11111111.11111111.11000000
+	New Subnet mask in decimal = 255.255.255.192
+Step4: Identify the four subnet ranges
+        New Subnet mask in binary = 11111111.11111111.11111111.11000000
+
+	Number of usable hosts = 2^n - 2
+	Number of total hosts = 2^n
+	                      = 2^6 = 64
+
+	Our IP address is 198.67.23.0
+
+	First Subnet range = 198.67.23.0 - 198.67.23.63
+	Second subnet range = 198.67.23.64 - 198.67.23.127
+	Third Subnet range = 198.67.23.128 - 198.67.23.191
+	Fourth subnet range = 198.67.23.192 - 198.67.23.255
+
+
+Question 2: Create 5 subnets from this IP 198.67.23.0
+	
+Step 1: Break down the IP to understand it:
+        Class   SubnetMask      CIDRRange
+          C     255.255.255.0   198.67.23.0/24
+
+Step2: Convert the IP from decimal to binary
+        198.67.23.0 TO BINARY => 11000110.01000011.00010111.00000000
+
+Step3: Calculate the number of host bits that be given to the network portion
+        as required by the subnets
+
+        No of subnets = 2^n
+		5 = 2 ^ n
+	        128   64  32  16  8  4  2  1
+		Since 5 is not a power of 2, we'll take the next minimum available  number
+  		8 = 2 ^ 3
+
+	Number of host bits required(n) to be added to the network = 3
+	 11000110.01000011.00010111.11100000
+        New CIDR Range for IP = 198.67.23.0/27
+        New Subnet mask in binary = 11111111.11111111.11111111.11100000
+        New Subnet mask in decimal = 255.255.255.224
+
+        Number of total hosts = 2^n
+			      = 2 ^5 = 32
+        We will have a total of 32 hosts per subnet - including the network and broadcast address
+
+	First Subnet range =  198.67.23.0 - 198.67.23.31
+	Second subnet range = 198.67.23.32 - 198.67.23.63
+	Third subnet range =  198.67.23.64 - 198.67.23.95
+	Fourth subnet range = 198.67.23.96 - 198.67.23.127
+	Fifth subnet	range = 198.67.23.128 - 198.67.23.159
